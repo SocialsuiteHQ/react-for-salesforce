@@ -1,0 +1,105 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Button Display 1`] = `
+<div>
+  <div
+    className="slds-form-element"
+  >
+    <div
+      className="slds-form-element__control"
+    >
+      <input
+        aria-activedescendant={undefined}
+        aria-autocomplete={undefined}
+        aria-controls={undefined}
+        aria-describedby={undefined}
+        aria-expanded={undefined}
+        aria-labelledby={undefined}
+        aria-owns={undefined}
+        aria-required={undefined}
+        autoComplete={undefined}
+        className="slds-input"
+        disabled={undefined}
+        id="base-id"
+        maxLength={undefined}
+        minLength={undefined}
+        name={undefined}
+        onBlur={undefined}
+        onChange={[Function]}
+        onClick={undefined}
+        onFocus={undefined}
+        onInput={undefined}
+        onInvalid={undefined}
+        onKeyDown={undefined}
+        onKeyPress={undefined}
+        onKeyUp={undefined}
+        onSelect={undefined}
+        onSubmit={undefined}
+        placeholder="Enter persons name..."
+        readOnly={undefined}
+        required={undefined}
+        role={undefined}
+        style={undefined}
+        tabIndex={undefined}
+        type="text"
+        value={undefined}
+      />
+    </div>
+  </div>
+  <ul
+    className="slds-list--vertical"
+    role="presentation"
+  >
+    <li
+      className="slds-lookup__item"
+    >
+      <span
+        onClick={[Function]}
+        role="option"
+      >
+        Lisa Taylor
+      </span>
+    </li>
+    <li
+      className="slds-lookup__item"
+    >
+      <span
+        onClick={[Function]}
+        role="option"
+      >
+        Joe Smith
+      </span>
+    </li>
+    <li
+      className="slds-lookup__item"
+    >
+      <span
+        onClick={[Function]}
+        role="option"
+      >
+        Chloe Miller
+      </span>
+    </li>
+    <li
+      className="slds-lookup__item"
+    >
+      <span
+        onClick={[Function]}
+        role="option"
+      >
+        Luis Vasquez
+      </span>
+    </li>
+    <li
+      className="slds-lookup__item"
+    >
+      <span
+        onClick={[Function]}
+        role="option"
+      >
+        Alex Wong
+      </span>
+    </li>
+  </ul>
+</div>
+`;
