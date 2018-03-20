@@ -10,37 +10,21 @@ React for Salesforce ISVs
 
 To test setup run:
 `npm run build`
-`npm start` and open features/search.html
+`npm start` and open features/search.html (uses a development build so you can use redux devtools)
+`npm run start-prod` and open features/search.html (starts a production build of webpack so doesn't include redux devtools)
 `npm test`
 `npm run storybook`
 
 
 ## To Use With Salesforce DX
 1. Create a `react` folder inside of your DX project and clone this repository into it
-2. Create a new static resource, e.g. called 'react'
-3. Replace the production build of webpack (bottom of webpack.config.js), in order to have it build both locally and to your static resource:
-```
-let wpConfig = merge(baseConfig, {
-        mode: 'production',
-        plugins: [
-            new webpack.EnvironmentPlugin({
-                NODE_ENV: 'production',
-                DEBUG: false
-            })
-        ]
-    });
+2. run the install scripts and check the setup tests all pass
+3. Create a new static resource, e.g. called 'react'
+4. Uncomment the production build part of webpack (bottom of webpack.config.js), and complete the path to your static resource
 
-    return [
-        wpConfig,
-        merge(wpConfig, {
-            output: {
-                path: path.resolve(__dirname, '../sfdx-source/<PACKAGE_NAME>/main/core/staticresources/<STATIC_RESOURCE_NAME>'),
-            },
-        })
-    ];
-```
+In Lightning you can call functions on your entrypoints (mostly just the init functions) by calling SalesforceReact.<bundle_name>.<function_name>, where the exported function name from the entryPoint will be the function you call to initialise in Lightning, e.g. ReactSalesforce.search.init()
 
-The output.library will be the name of the library you call in Lightning, and the exported function name from the entryPoint will be the function you call to initialise in Lightning, e.g. ReactSearch.initReact()
+For each feature you want to export create a new file in app/entryPoints. Files ending in .prod.js or .dev.js will be ignored to make local development easier
 
 4. Create a Lightning Component with the following code:
 component.cmp
@@ -89,7 +73,7 @@ componentController.js
         var container = component.find("container").getElement();
         
 		//This uses the webpack output.library and the exported init function from the entrypoint file
-		ReactSearch.initSearch(container, dataService);
+		ReactSalesforce.search.init(container, dataService);
     }
 })
 ```
@@ -112,6 +96,3 @@ public with sharing class ComponentController {
 ```
 
 6. Push the code to your scratch org and add the component to a page to test
-
-
-You can export multiple static resources at once (using different entrypoints and output folders inside the webpack config). Remember to name the output.library to be something different for each feature

@@ -8,7 +8,7 @@ import initStore from '~/config/reduxSetup';
 
 const store = initStore();
 
-export const initSearch = (el, service) => {
+export const init = (el, service) => {
     render((
         <Provider store={store}>
             <div>
