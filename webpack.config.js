@@ -49,7 +49,11 @@ let baseConfig = {
     },
     resolve: {
         extensions: ['.js', '.jsx', '.css'],
-    }
+    },
+	plugins: [
+		new webpack.NamedModulesPlugin(),
+		new webpack.HotModuleReplacementPlugin()
+	]
 };
 
 module.exports = (env) => {
@@ -59,8 +63,6 @@ module.exports = (env) => {
         return merge(baseConfig, {
             mode: 'none',
             plugins: [
-                new webpack.NamedModulesPlugin(),
-                new webpack.HotModuleReplacementPlugin(),
                 new webpack.EnvironmentPlugin({
                     NODE_ENV: 'development',
                     DEBUG: false
