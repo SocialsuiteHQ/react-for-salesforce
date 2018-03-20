@@ -5,7 +5,7 @@ import { storiesOf } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
 import { withKnobs, text } from '@storybook/addon-knobs/react';
 
-import ContactSearch from '~/js/components/ContactSearch';
+import ContactSearch from '~/components/ContactSearch';
 import { dataService } from '../__mocks__/mock.js';
 
 storiesOf('Contact Search', module)

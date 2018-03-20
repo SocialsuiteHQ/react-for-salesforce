@@ -1,19 +1,6 @@
-import { createStore, applyMiddleware, compose } from 'redux';
-import logger from 'redux-logger';
-
-import reducer from '~/reducers';
-import DevTools from '~/js/components/DevTools';
-
-const enhancer = compose(
-    applyMiddleware(logger),
-    DevTools.instrument()
-);
-
-function configureStore() {
-    return createStore(reducer, enhancer);
+/* eslint global-require: 0 */
+if (process.env.NODE_ENV === 'production') {
+    module.exports = require('./reduxSetup.prod');
+} else {
+    module.exports = require('./reduxSetup.dev');
 }
-
-export default () => {
-    const store = configureStore();
-    return store;
-};

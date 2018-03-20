@@ -1,9 +1,9 @@
 let path = require('path');
 const webpack = require('webpack');
+const merge = require('webpack-merge');
 
-module.exports = {
-    entry: './app/js/entryPoints/search.js',
-    mode: 'none',
+let baseConfig = {
+    entry: './app/entryPoints/search.js',
     output: {
         path: path.resolve(__dirname, 'build'),
         filename: 'search.bundle.js',
@@ -49,9 +49,33 @@ module.exports = {
     },
     resolve: {
         extensions: ['.js', '.jsx', '.css'],
-    },
-    plugins: [
-        new webpack.NamedModulesPlugin(),
-        new webpack.HotModuleReplacementPlugin()
-    ]
+    }
+};
+
+module.exports = (env) => {
+    console.log(`Running in ${env === 'development' ? 'development' : 'production'} mode`);
+
+    if (env === 'development') {
+        return merge(baseConfig, {
+            mode: 'none',
+            plugins: [
+                new webpack.NamedModulesPlugin(),
+                new webpack.HotModuleReplacementPlugin(),
+                new webpack.EnvironmentPlugin({
+                    NODE_ENV: 'development',
+                    DEBUG: false
+                })
+            ]
+        });
+    }
+
+    return merge(baseConfig, {
+        mode: 'production',
+        plugins: [
+            new webpack.EnvironmentPlugin({
+                NODE_ENV: 'production',
+                DEBUG: false
+            })
+        ]
+    });
 };

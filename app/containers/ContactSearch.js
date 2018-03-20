@@ -3,7 +3,7 @@ import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 
 import { ActionCreators } from '~/actions';
-import ContactSearch from '~/js/components/ContactSearch';
+import ContactSearch from '~/components/ContactSearch';
 
 function mapDispatchToProps(dispatch) {
     return {
