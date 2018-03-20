@@ -3,7 +3,7 @@ const webpack = require('webpack');
 
 module.exports = {
     entry: './app/js/entryPoints/search.js',
-    mode: 'development',
+    mode: 'none',
     output: {
         path: path.resolve(__dirname, 'build'),
         filename: 'search.bundle.js',
