@@ -2,6 +2,29 @@
 
 exports[`Button Display 1`] = `
 <div>
+  <button
+    aria-controls={undefined}
+    aria-describedby={undefined}
+    aria-expanded={undefined}
+    aria-haspopup={undefined}
+    className="slds-button slds-button--brand"
+    disabled={false}
+    id={undefined}
+    onBlur={undefined}
+    onClick={[Function]}
+    onFocus={undefined}
+    onKeyDown={undefined}
+    onKeyPress={undefined}
+    onKeyUp={undefined}
+    onMouseDown={undefined}
+    onMouseEnter={undefined}
+    onMouseLeave={undefined}
+    tabIndex={undefined}
+    title={undefined}
+    type="button"
+  >
+    Check Placeholder Text
+  </button>
   <div
     className="slds-form-element"
   >
@@ -35,7 +58,7 @@ exports[`Button Display 1`] = `
         onKeyUp={undefined}
         onSelect={undefined}
         onSubmit={undefined}
-        placeholder="Enter persons name..."
+        placeholder={undefined}
         readOnly={undefined}
         required={undefined}
         role={undefined}

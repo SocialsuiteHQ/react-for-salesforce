@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import { hot } from 'react-hot-loader';
 import Input from '@salesforce/design-system-react/components/forms/input';
+import Button from '@salesforce/design-system-react/components/button';
 
 import ContactList from './ContactList';
 
@@ -16,6 +16,10 @@ class ContactSearch extends Component {
         this.props.service.findAll(data => this.setState({ contacts: data }));
     }
 
+    onButtonPress = () => {
+        this.props.actions.testAction('New Placeholder Text');
+    }
+
     searchKeyChange = (event) => {
         this.props.service.findByName(event.target.value, data => this.setState({ contacts: data }));
     }
@@ -23,11 +27,12 @@ class ContactSearch extends Component {
     render() {
         return (
             <div>
-                <Input id="base-id" placeholder="Enter persons name..." onChange={this.searchKeyChange} />
+                <Button label="Check Placeholder Text" variant="brand" onClick={this.onButtonPress} />
+                <Input id="base-id" placeholder={this.props.message} onChange={this.searchKeyChange} />
                 <ContactList contacts={this.state.contacts} navigateToSObject={this.props.service.navigateToSObject} />
             </div>
         );
     }
 }
 
-export default hot(module)(ContactSearch);
+export default ContactSearch;
