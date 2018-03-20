@@ -9,11 +9,11 @@ React for Salesforce ISVs
 3. `yarn install`
 
 To test setup run:
-`npm run build`
-`npm start` and open features/search.html (uses a development build so you can use redux devtools)
-`npm run start-prod` and open features/search.html (starts a production build of webpack so doesn't include redux devtools)
-`npm test`
-`npm run storybook`
+* `npm run build`
+* `npm start` and open features/search.html (uses a development build so you can use redux devtools)
+* `npm run start-prod` and open features/search.html (starts a production build of webpack so doesn't include redux devtools)
+* `npm test`
+* `npm run storybook`
 
 
 ## To Use With Salesforce DX
@@ -33,7 +33,6 @@ component.cmp
     
     <ltng:require scripts="{!join(',', 
                             $Resource.react + '/search.bundle.js')}"
-                  styles="{!join(',', $Resource.SLDS0121 + '/assets/styles/salesforce-lightning-design-system-ltng.css')}"
                   afterScriptsLoaded="{!c.reactInit}"/>
     
     <div style="background: white"> 
